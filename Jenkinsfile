@@ -1,15 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('System Info') {
+        stage('Build Info') {
             steps {
                 bat """
                 @echo off
-                echo === Project 2: System Info ===
-                echo Computer Name: %COMPUTERNAME%
-                echo User: %USERNAME%
-                ver
-                systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+                echo === Project 3: Jenkins Build Info ===
+                echo Job: %JOB_NAME%
+                echo Build: %BUILD_NUMBER%
+                echo Workspace: %WORKSPACE%
+                echo Date: %DATE% %TIME%
                 """
             }
         }
